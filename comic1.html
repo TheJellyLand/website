@@ -14,9 +14,12 @@
      <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Store</a></span>
     </div>
     <div id="main-img-container">
-      <div id="main-comic-links" class="box">
-        <div><a href="/comic1.html">Lonely In Space</a></div>
-        <div><a href="/comic2.html">Search For The Origin</a></div>
+      <div id="main-img" class="box">
+        <div><span><img src="comics/1-Lonely-In-Space/frame1.png"/></span></div>
+        <div><span><img src="comics/1-Lonely-In-Space/frame2.png"/></span></div>
+        <div><span><img src="comics/1-Lonely-In-Space/frame3.png"/></span></div>
+        <div><span><img src="comics/1-Lonely-In-Space/frame4-1.png"/></span></div>
+        <div><span><img src="comics/1-Lonely-In-Space/frame5.png"/></span></div>
       </div>
     </div>
     <div>
@@ -37,6 +40,13 @@
       height: 100vh;
       color: #282828;
       background-color: floralwhite;
+    }
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box>* {
+        flex: 1 1 160px;
     }
 
     body {
@@ -61,7 +71,7 @@
     p {
       text-align: center;
     }
-    #main-header-links a { 
+    a { 
       color: black;
       text-decoration: none;
     }
