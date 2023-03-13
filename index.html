@@ -2,6 +2,7 @@
 <html>
   <head>
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>JellyLand</title>
   </head>
 
@@ -83,9 +84,27 @@
       padding: 0 45px;
       margin-bottom: 21px;
     }
-    @media only screen and (min-width: 905px) {
-      #main-img img { max-width: 1000px; }
-      body { min-width: 1000px; }
+    @media (max-width: 440px) {
+      #main-img div {
+        padding-bottom: 8px;
+      }
+      #main-header-links {
+        height: 50px;
+        margin: 5vh 0;
+      }
+      #main-header-links span {
+        display: inline-block;
+        font-size: 1.5em;
+        padding: 0 15px;
+      }
+      #main-comic-links a {
+        font-size: 25px;
+        line-height: 49px;
+      }
+      #main-header-text {
+        font-size: clamp(45px,11vw,100px);
+        margin: 5vh 25px;
+      }
     }
   </style>
 </html>

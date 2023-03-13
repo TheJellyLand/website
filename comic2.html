@@ -12,7 +12,7 @@
       <span><a href="/comic.html">Comics</a></span>
       <span><a target="_blank" rel="noreferrer noopener" href="https://opensea.io/collection/thejellyland-collection">NFTs</a></span>
       <span><a href="/app.html">App</a></span>
-     <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Store</a></span>
+     <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Shop</a></span>
     </div>
     <div id="main-img-container">
       <div id="main-img" class="box">
@@ -95,15 +95,29 @@
       margin-bottom: 21px;
     }
     @media (max-width: 440px) {
-      #main-header-links span {
-        display: block;
-      }
       #main-img img { 
         border: 8px solid black;
         width: 95vw;
       }
       #main-img div {
         padding-bottom: 8px;
+      }
+      #main-header-links {
+        height: 50px;
+        margin: 5vh 0;
+      }
+      #main-header-links span {
+        display: inline-block;
+        font-size: 1.5em;
+        padding: 0 15px;
+      }
+      #main-comic-links a {
+        font-size: 25px;
+        line-height: 49px;
+      }
+      #main-header-text {
+        font-size: clamp(45px,11vw,100px);
+        margin: 5vh 25px;
       }
     }
   </style>

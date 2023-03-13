@@ -95,15 +95,29 @@
       margin-bottom: 21px;
     }
     @media (max-width: 440px) {
-      #main-header-links span {
-        display: block;
-      }
       #main-img img { 
         border: 8px solid black;
         width: 95vw;
       }
       #main-img div {
         padding-bottom: 8px;
+      }
+      #main-header-links {
+        height: 50px;
+        margin: 5vh 0;
+      }
+      #main-header-links span {
+        display: inline-block;
+        font-size: 1.5em;
+        padding: 0 15px;
+      }
+      #main-comic-links a {
+        font-size: 25px;
+        line-height: 49px;
+      }
+      #main-header-text {
+        font-size: clamp(45px,11vw,100px);
+        margin: 5vh 25px;
       }
     }
   </style>
