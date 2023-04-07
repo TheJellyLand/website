@@ -15,11 +15,12 @@
      <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Shop</a></span>
     </div>
     <div id="main-img-container">
-      <div id="main-comic-links" class="box">
-        <div><a href="/comic1.html">1. Lonely In Space</a></div>
-        <div><a href="/comic2.html">2. Search For The Origin</a></div>
-        <div><a href="/comic3.html">3. The Family Here</a></div>
-        <div><a href="/comic4.html">4. A Trip to The World</a></div>
+      <div id="main-img" class="box">
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame1.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame2.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame3.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame4.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame5.png"/></span></div>
       </div>
     </div>
     <div>
@@ -40,6 +41,13 @@
       height: 100vh;
       color: #282828;
       background-color: floralwhite;
+    }
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box>* {
+        flex: 1 1 160px;
     }
 
     body {
@@ -64,16 +72,11 @@
     p {
       text-align: center;
     }
-    #main-header-links a { 
+    a { 
       color: black;
       text-decoration: none;
     }
-    #main-comic-links a {
-      font-size: 38px;
-      line-height: 60px;
-    }
-
-    #main-header-links a:hover {
+    a:hover {
       text-decoration: underline;
 
     }
@@ -83,7 +86,6 @@
       text-decoration: underline;
     }
     #main-header-links {
-      height: 50px;
       margin: 7vh 0;
     }
     #main-header-links span {
