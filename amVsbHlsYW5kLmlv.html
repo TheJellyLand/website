@@ -28,20 +28,26 @@
       <p>If you run into any issues with the form feel free to DM @TheJellyLand on Twitter and send us your ETH wallet</p>
       <p><b>NOTE: the wallet address must be the hex value and not the ENS domain name currently.</b></p> 
       <br/><br/>
-         <form action="mailto:3euze3a38@mozmail.com" method="get" enctype="text/plain" target="_blank">
-    ETH Wallet:
-    <input type="text" name="subject" placeholder="0x00000000000000000000"><br>
-    <br/>How did you hear about JellyLand?:<br/>
-    <textarea name="body" rows="5" cols="30" placeholder="Your Message"></textarea><br>
-    <br/>
-    <input type="submit" value="Send">
-  </form> 
+            ETH Wallet:
+            <input id="address" type="text" name="subject" placeholder="0x00000000000000000000"><br>
+            <br/>How did you hear about JellyLand?:<br/>
+            <textarea id="message" name="body" rows="5" cols="30" placeholder="Your Message"></textarea><br>
+            <br/>
+            <button onclick="sendMail()">Send</button>
     </div>
     <div>
     </div>
     <div id="footer">
         &#169; 2023 Jellyman LLC |  <a href="https://twitter.com/TheJellyLand">Twitter</a> | <a href="https://github.com/TheJellyLand">Github</a> | <a href="https://medium.com/@jellyland">Medium</a>
     </div>
+  <script>
+    function sendMail() {    
+        var body = document.getElementById("message").value;
+        var subject = document.getElementById("address").value;
+
+        window.location.replace(`mailto:3euze3a38@mozmail.com?body=${body}&subject=${subject}`);    
+    }
+  </script>
   </body>
   <style>
     #footer {
