@@ -7,7 +7,6 @@
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <script src="node_modules/web3/dist/web3.min.js"></script>
-    <script src="node_modules/web3modal/dist/index.js"></script>
   </head>
 
   <body>
@@ -22,15 +21,56 @@
     <div id="nft-container">
       <div id="nft" class="box">
         <div id="nft-image"><span><img src="jellyman_logo.png"/></span></div>
-        <div id="nft-text"><span>blah blah
-        Thou hast had a good afternoon
-          Harum aspernatur exercitationem et est cupiditate dicta laboriosam id. Suscipit consequatur error inventore alias veniam deserunt aut corrupti. Est adipisci voluptates voluptatem. Eum et laboriosam et maiores et. Maxime ut placeat voluptatibus ut ex. Aliquam eveniet cum modi iure incidunt sed.<br/><br/> <button onClick="handleMintNFT()" class="nes-btn">Mint NFT</button><a class="nes-btn is-primary"> OpenSea</a></span></div>
+        <div id="nft-text"><span>
+            <h3>Jelly #D200C5</h3>
+            These are the original Jellys who are still wandering around the universe. Only 100 will be minted! There origin story is known to only a few. They have been on many adventures around the Universe and only grow wiser with age.
+            <br/><br/> <button onClick="handleMintNFT()" class="nes-btn">Mint NFT</button><a class="nes-btn is-primary"> OpenSea</a></span></div>
       </div>
 
     </div>
     <section id="nft-metrics">
       <h2>Details</h2>
-      <p>TBD</p>
+      <p>The smart contract powering the creation of these NFTs can be seen <here-githublink>.
+        At the base is an ERC721 OpenZepplin NFT smart contract which is extended to control
+        certain properties such as the price and supply of each Jelly minted.
+      </p>
+      <div class="box"> 
+        <div id="price-image"><span><img src="price_prediction.png"/></span></div>
+        <div id="price-text">
+          <span>
+            The first 100 minted NFTs of this collection will be at no cost (except the gas fee to mint). 
+            After this first batch has been minted, subsequent NFTs will be of varying price based on the overall
+            supply already minted. The figure shows the predicted price of the NFT, with the final one costing 0.1 ETH.
+            <br/>
+            <br/>
+            <div class="nes-container">
+            Price = tokenSupply * 0.00001 ETH
+            </div>
+          <span>
+        </div>
+      </div>
+      <div id="additional">
+        The total number of Jelly NFTs to be minted will be 10000, but only a limited number will be minted in each hue of purple.
+        There will also be a collectors edition released in the future for Unique Jellys who appear throughout the comic series.
+        Also some surprises to be on the lookout for!
+        <section class="nes-container with-title box">
+        <div class="lists">
+          <ul class="nes-list is-disc">
+            <li>100  x #D200C5</li>
+            <li>1000 x #BF4FC1</li>
+            <li>4000 x #983EB9</li>
+            <li>4900 x #844FC1</li>
+            <br/>
+           Total = 10k 
+          </ul>
+        </div>
+        <div>
+           <progress class="nes-progress is-error" value="10" max="100"></progress>
+           <span>Minted: 1/10000</span><br/><br/>
+           <span>Current: #D200C5</span>
+        </div>
+        </section>
+      </div>
     </section>
     <section id="main-content" class="topic">
       <h2>About</h2>
@@ -55,17 +95,20 @@
     </div>
   </body>
   <style>
-      html {cursor: pointer}
-      body{
-        padding: 5%;
-        max-width:2000px;
-      }
+html {cursor: pointer}
+#price-text {padding-top: 2em;}
+#price-image img {width: 100%;}
+#additional {margin-top: 3em;}
+body{
+  padding: 5%;
+  max-width:2000px;
+}
       a {color: #5c00ff}
-      
+
       #footer {
         margin: 2em 0;
       }
-      
+
       #main-img img {
         margin-left: 10%;
         width: 100px;
@@ -87,7 +130,7 @@
 
         width: 50%;
       }
-    
+
       @media (max-width: 440px) {
         #main-img img { margin-left: 0; }
         p { font-size: 14px; }
@@ -96,45 +139,45 @@
         margin: 2rem 0;
       }
       #nft-image {
-  text-align: center;
-  margin: 5em;
-}
-    .box {
+        text-align: center;
+        margin: 5em;
+      }
+      .box {
         display: flex;
         flex-wrap: wrap;
-    }
-    .box>* {
+      }
+      .box>* {
         flex: 1 360px;
-    }
+      }
 
-    #nft-container {
-      overflow: hidden;
-      max-width: 1300px;
-    }
-    #nft-text {
-      padding-top: 30px;
-    }
-    .nes-btn {
-      margin-right: 10px;
-    }
-    #nft-metrics {
-      margin-top: 3em;
-    }
+      #nft-container {
+        overflow: hidden;
+        max-width: 1300px;
+      }
+      #nft-text {
+        padding-top: 30px;
+      }
+      .nes-btn {
+        margin-right: 10px;
+      }
+      #nft-metrics {
+        margin-top: 3em;
+      }
   </style>
-      <script>
-        var JellyNFT;
-        async function loadContractJSON() {
+  <script>
+    var JellyNFT;
+    async function loadContractJSON() {
           JellyNFT = await fetch('./JellyNFT.json')
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                return data;
-             })
+                  console.log(data)
+                  return data;
+                })
             .catch(error => console.log(error));
 
           console.log(JellyNFT);
         }
-        async function handleMintNFT() {
+    async function handleMintNFT() {
           //const web3Modal = new Web3Modal();
           //const provider = await web3Modal.connect()
           //const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8085'));
@@ -146,21 +189,40 @@
           //  }  
           //     return false;
           //  }
-          const web3 = new Web3(window.ethereum);
-          const accounts = await window.ethereum.request({
-                        method: 'eth_requestAccounts',
-                    });
+          
+          //const web3 = new Web3(window.ethereum);
+          //web3.eth.Contract.handleRevert = true;
+          //const accounts = await window.ethereum.request({
+          //      method: 'eth_requestAccounts',
+          //    });
           //web3.eth.defaultAccount = accounts[0];
-          //const web3 = new Web3("http://localhost:8085");
-          const ContractAddress = "0x18E317A7D70d8fBf8e6E893616b52390EbBdb629";
+          const web3 = new Web3("http://localhost:8085");
+          const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
           const JellyNFTContract = new web3.eth.Contract(JellyNFT, ContractAddress);
-          //const accounts = await web3.eth.getAccounts()
-                  console.log(accounts);
+          const accounts = await web3.eth.getAccounts()
+          const bal = web3.eth.getBalance(accounts[0]);
+          console.log(bal);
+          console.log(JellyNFTContract);
+          console.log(accounts);
+
+    try {
+          const balanceOf = JellyNFTContract.methods.balanceOf(accounts[0]).call({from: accounts[0]});
+          console.log(balanceOf);
+    } catch (error) {
+        console.error(error);
+    }
+
+
+
           ////const data = await JellyNFTContract.methods.mint().call();
           //const price = await JellyNFTContract.methods.getPrice().call();
-          
-                  const price = await JellyNFTContract.methods.getPrice().call({from: accounts[0]});
+
+          //const price = await JellyNFTContract.methods.getPrice().call({from: accounts[0]});
+
+
+
+
           //console.log("FROG");
           //JellyNFTContract.methods.mint().send({from: accounts[0], value: price }).on('receipt', function (receipt) {
           //    console.log('minted');
@@ -175,6 +237,6 @@
           //});
         }
 
-        loadContractJSON();
-      </script>
+    loadContractJSON();
+  </script>
 </html>

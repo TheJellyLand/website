@@ -1,2 +1,6 @@
 .DS_Store
 node_modules
+analysis/venv
+analysis/lib
+analysis/pyvenv.cfg
+analysis/bin
