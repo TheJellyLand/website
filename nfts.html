@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>JellyLand</title>
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <script src="node_modules/web3/dist/web3.min.js"></script>
+    <script src="node_modules/web3modal/dist/index.js"></script>
+  </head>
+
+  <body>
+    <h1 id="main-header-text">The JellyLand</h1>
+    <div id="main-header-links">
+      <span><a href="/nfts.html">NFTs</a></span>
+      <span><a href="/comic.html">Comics</a></span>
+      <span><a href="/app.html">App</a></span>
+      <span><a href="/roadmap.html">Roadmap</a></span>
+      <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Shop</a></span>
+    </div>
+    <div id="nft-container">
+      <div id="nft" class="box">
+        <div id="nft-image"><span><img src="jellyman_logo.png"/></span></div>
+        <div id="nft-text"><span>blah blah
+        Thou hast had a good afternoon
+          Harum aspernatur exercitationem et est cupiditate dicta laboriosam id. Suscipit consequatur error inventore alias veniam deserunt aut corrupti. Est adipisci voluptates voluptatem. Eum et laboriosam et maiores et. Maxime ut placeat voluptatibus ut ex. Aliquam eveniet cum modi iure incidunt sed.<br/><br/> <button onClick="handleMintNFT()" class="nes-btn">Mint NFT</button><a class="nes-btn is-primary"> OpenSea</a></span></div>
+      </div>
+
+    </div>
+    <section id="nft-metrics">
+      <h2>Details</h2>
+      <p>TBD</p>
+    </section>
+    <section id="main-content" class="topic">
+      <h2>About</h2>
+      <p id="overview-text">
+      Jellyman was a cartoon character created by an 8th grader from New York back in 2007. 
+      It was a bit of a small town hit with family and friends. 
+      Online games, animations, and merchandise were created around various Jelly characters. 
+      In many ways it was still the early days of the modern internet back then and this was quite a unique experience. 
+
+      Life progressed for the creator but Jellyman was left behind. Now in 2023 with the advent of NFTs, a new JellyLand is back with many of the same characters and more!
+
+      If you are interested in more of the story check out the blog post <a style="color:revert" href="https://medium.com/@jellyland/the-birth-of-a-cartoonist-a35d9ba55ceb">here</a>.
+
+
+      As we get ramped up again and building on a modern technology stack check out the <a href="roadmap.html">Roadmap</a>.
+
+      </p>
+    </section>
+
+    <div id="footer">
+      &#169; 2023 Jellyman LLC |  <a href="https://twitter.com/TheJellyLand">Twitter</a> | <a href="https://github.com/TheJellyLand">Github</a> | <a href="https://medium.com/@jellyland">Medium</a>
+    </div>
+  </body>
+  <style>
+      html {cursor: pointer}
+      body{
+        padding: 5%;
+        max-width:2000px;
+      }
+      a {color: #5c00ff}
+      
+      #footer {
+        margin: 2em 0;
+      }
+      
+      #main-img img {
+        margin-left: 10%;
+        width: 100px;
+        image-rendering: pixelated;
+      }
+      .nes-container {
+        margin-top: 2.5rem
+      }
+      #main-image-ballon {
+        margin-left: 20%;
+      }
+      #main-img-container {
+        margin: 3rem 0;
+      }
+      #main-content-container {
+        margin-top: 2em;
+      }
+      #main-content-container td {
+
+        width: 50%;
+      }
+    
+      @media (max-width: 440px) {
+        #main-img img { margin-left: 0; }
+        p { font-size: 14px; }
+      }
+      #main-content {
+        margin: 2rem 0;
+      }
+      #nft-image {
+  text-align: center;
+  margin: 5em;
+}
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box>* {
+        flex: 1 360px;
+    }
+
+    #nft-container {
+      overflow: hidden;
+      max-width: 1300px;
+    }
+    #nft-text {
+      padding-top: 30px;
+    }
+    .nes-btn {
+      margin-right: 10px;
+    }
+    #nft-metrics {
+      margin-top: 3em;
+    }
+  </style>
+      <script>
+        var JellyNFT;
+        async function loadContractJSON() {
+          JellyNFT = await fetch('./JellyNFT.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                return data;
+             })
+            .catch(error => console.log(error));
+
+          console.log(JellyNFT);
+        }
+        async function handleMintNFT() {
+          //const web3Modal = new Web3Modal();
+          //const provider = await web3Modal.connect()
+          //const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8085'));
+          //const ethEnabled = async () => {  
+          //  if (window.ethereum) {    
+          //     await window.ethereum.request({method: 'eth_requestAccounts'});
+          //     window.web3 = new Web3(window.ethereum);    
+          //     return true;  
+          //  }  
+          //     return false;
+          //  }
+          const web3 = new Web3(window.ethereum);
+          const accounts = await window.ethereum.request({
+                        method: 'eth_requestAccounts',
+                    });
+          //web3.eth.defaultAccount = accounts[0];
+          //const web3 = new Web3("http://localhost:8085");
+          const ContractAddress = "0x18E317A7D70d8fBf8e6E893616b52390EbBdb629";
+
+          const JellyNFTContract = new web3.eth.Contract(JellyNFT, ContractAddress);
+          //const accounts = await web3.eth.getAccounts()
+                  console.log(accounts);
+          ////const data = await JellyNFTContract.methods.mint().call();
+          //const price = await JellyNFTContract.methods.getPrice().call();
+          
+                  const price = await JellyNFTContract.methods.getPrice().call({from: accounts[0]});
+          //console.log("FROG");
+          //JellyNFTContract.methods.mint().send({from: accounts[0], value: price }).on('receipt', function (receipt) {
+          //    console.log('minted');
+          //    console.log(receipt);
+          //    // List the NFT
+          //    //const tokenId = receipt.events.NFTMinted.returnValues[0];
+          //    //marketPlaceContract.methods.listNft(boredPetsContractAddress, tokenId, Web3.utils.toWei(formInput.price, "ether"))
+          //    //    .send({ from: accounts[0], value: listingFee }).on('receipt', function () {
+          //    //        console.log('listed')
+          //    //        router.push('/')
+          //    //    });
+          //});
+        }
+
+        loadContractJSON();
+      </script>
+</html>

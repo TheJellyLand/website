@@ -4,17 +4,22 @@
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>JellyLand</title>
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="styles-comic.css">
   </head>
 
   <body>
     <h1 id="main-header-text">The JellyLand</h1>
     <div id="main-header-links">
-      <span><a href="/comic.html">Comics</a></span>
       <span><a target="_blank" rel="noreferrer noopener" href="https://opensea.io/collection/thejellyland-collection">NFTs</a></span>
+      <span><a href="/comic.html">Comics</a></span>
       <span><a href="/app.html">App</a></span>
+      <span><a href="#">Roadmap</a></span>
      <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Shop</a></span>
     </div>
     <div id="main-img-container">
+      <h3>Evil Jellys Lair</h3></br>
       <div id="main-img" class="box">
         <div><span><img src="comics/5-Evil-Jellys-Lair/frame1.png"/></span></div>
         <div><span><img src="comics/5-Evil-Jellys-Lair/frame2.png"/></span></div>
@@ -34,91 +39,5 @@
     </div>
   </body>
   <style>
-    #footer {
-      padding-top: 100px;
-    }
-    html {
-      height: 100vh;
-      color: #282828;
-      background-color: floralwhite;
-    }
-    .box {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .box>* {
-        flex: 1 1 160px;
-    }
-
-    body {
-      text-align: center;
-      font-family: sans-serif;
-      margin: 0;
-    }
-    #main-img-container {
-      margin: 0 auto;
-      overflow: hidden;
-      max-width: 1000px;
-    }
-    #main-img div {
-      
-    }
-
-    #main-img img {
-      border: 5px solid black;
-      border-radius: 15px;
-      max-width: 99vw;
-    }
-    p {
-      text-align: center;
-    }
-    a { 
-      color: black;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-
-    }
-    #main-header-text {
-      font-size: clamp(65px,11vw,100px);;
-      margin: 5vh 25px;
-      text-decoration: underline;
-    }
-    #main-header-links {
-      margin: 7vh 0;
-    }
-    #main-header-links span {
-      display: inline-block;
-      font-size: 2.5em;
-      padding: 0 45px;
-      margin-bottom: 21px;
-    }
-    @media (max-width: 440px) {
-      #main-img img { 
-        border: 8px solid black;
-        width: 95vw;
-      }
-      #main-img div {
-        padding-bottom: 8px;
-      }
-      #main-header-links {
-        height: 50px;
-        margin: 5vh 0;
-      }
-      #main-header-links span {
-        display: inline-block;
-        font-size: 1.5em;
-        padding: 0 15px;
-      }
-      #main-comic-links a {
-        font-size: 25px;
-        line-height: 49px;
-      }
-      #main-header-text {
-        font-size: clamp(45px,11vw,100px);
-        margin: 5vh 25px;
-      }
-    }
   </style>
 </html>

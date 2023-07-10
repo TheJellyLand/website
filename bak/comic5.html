@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>JellyLand</title>
+  </head>
+
+  <body>
+    <h1 id="main-header-text">The JellyLand</h1>
+    <div id="main-header-links">
+      <span><a href="/comic.html">Comics</a></span>
+      <span><a target="_blank" rel="noreferrer noopener" href="https://opensea.io/collection/thejellyland-collection">NFTs</a></span>
+      <span><a href="/app.html">App</a></span>
+     <span><a target="_blank" rel="noreferrer noopener" href="https://thejellyland.square.site/s/shop">Shop</a></span>
+    </div>
+    <div id="main-img-container">
+      <div id="main-img" class="box">
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame1.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame2.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame3.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame4.png"/></span></div>
+        <div><span><img src="comics/5-Evil-Jellys-Lair/frame5.png"/></span></div>
+      </div>
+    </div>
+    <div>
+      <!--
+      <p>
+       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p> -->
+    </div>
+    <div id="footer">
+        &#169; 2023 Jellyman LLC |  <a href="https://twitter.com/TheJellyLand">Twitter</a> | <a href="https://github.com/TheJellyLand">Github</a>
+    </div>
+  </body>
+  <style>
+    #footer {
+      padding-top: 100px;
+    }
+    html {
+      height: 100vh;
+      color: #282828;
+      background-color: floralwhite;
+    }
+    .box {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box>* {
+        flex: 1 1 160px;
+    }
+
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin: 0;
+    }
+    #main-img-container {
+      margin: 0 auto;
+      overflow: hidden;
+      max-width: 1000px;
+    }
+    #main-img div {
+      
+    }
+
+    #main-img img {
+      border: 5px solid black;
+      border-radius: 15px;
+      max-width: 99vw;
+    }
+    p {
+      text-align: center;
+    }
+    a { 
+      color: black;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+
+    }
+    #main-header-text {
+      font-size: clamp(65px,11vw,100px);;
+      margin: 5vh 25px;
+      text-decoration: underline;
+    }
+    #main-header-links {
+      margin: 7vh 0;
+    }
+    #main-header-links span {
+      display: inline-block;
+      font-size: 2.5em;
+      padding: 0 45px;
+      margin-bottom: 21px;
+    }
+    @media (max-width: 440px) {
+      #main-img img { 
+        border: 8px solid black;
+        width: 95vw;
+      }
+      #main-img div {
+        padding-bottom: 8px;
+      }
+      #main-header-links {
+        height: 50px;
+        margin: 5vh 0;
+      }
+      #main-header-links span {
+        display: inline-block;
+        font-size: 1.5em;
+        padding: 0 15px;
+      }
+      #main-comic-links a {
+        font-size: 25px;
+        line-height: 49px;
+      }
+      #main-header-text {
+        font-size: clamp(45px,11vw,100px);
+        margin: 5vh 25px;
+      }
+    }
+  </style>
+</html>
